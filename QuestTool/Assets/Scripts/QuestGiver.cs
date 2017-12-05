@@ -15,8 +15,8 @@ public class QuestGiver : MonoBehaviour {
 
     [System.Serializable]
     public class Quest {
-        string name;
-        string dialogue;
+        public string name;
+        public string dialogue;
         public Quest() {
             name = "New Quest";
             dialogue = "";
@@ -30,7 +30,8 @@ public class QuestGiver : MonoBehaviour {
     }
 
     [SerializeField]
-    private List<Quest> quests = new List<Quest>();
+    [HideInInspector]
+    public List<Quest> quests = new List<Quest>();
 
     void Awake() {
         Debug.Log(quests.Count);
@@ -49,6 +50,11 @@ public class QuestGiver : MonoBehaviour {
     public void AddNewQuest() {
         Quest tempQuest = new Quest();
         quests.Add(tempQuest);
+        Debug.Log(quests.Count);
+    }
+
+    public void ClearAllQuests() {
+        quests.Clear();
         Debug.Log(quests.Count);
     }
 }
