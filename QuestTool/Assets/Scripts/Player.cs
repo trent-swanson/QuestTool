@@ -31,8 +31,8 @@ public class Player : MonoBehaviour {
         
         transform.Rotate(0, rotate, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        /*if (Input.GetKeyDown(KeyCode.Space)) {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-        }
+        }*/
     }
 }

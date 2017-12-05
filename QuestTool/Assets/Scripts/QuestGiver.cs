@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class QuestGiver : MonoBehaviour {
 
-    [Header("Quest Marker")]
-    [Tooltip("Marker Sprite")]
     public GameObject questMarker;
-    [Tooltip("Local Postition of Marker")]
     public Vector3 questMarkerPos;
-    [Tooltip("Colour of Marker")]
     public Color questMarkerColour;
     private GameObject questMarkerRef;
 
@@ -30,19 +26,17 @@ public class QuestGiver : MonoBehaviour {
     }
 
     [SerializeField]
-    [HideInInspector]
     public List<Quest> quests = new List<Quest>();
 
-    void Awake() {
-        Debug.Log(quests.Count);
-    }
 
     void OnApplicationQuit() {
         quests.Clear();
     }
 
     public void AddMarker() {
-        questMarkerRef = GameObject.Instantiate(questMarker, transform);
+		if(questMarkerRef == null) {
+			questMarkerRef = GameObject.Instantiate(questMarker, transform);
+		}
         questMarkerRef.transform.localPosition = questMarkerPos;
         questMarkerRef.GetComponent<SpriteRenderer>().color = questMarkerColour;
     }
@@ -50,11 +44,9 @@ public class QuestGiver : MonoBehaviour {
     public void AddNewQuest() {
         Quest tempQuest = new Quest();
         quests.Add(tempQuest);
-        Debug.Log(quests.Count);
     }
 
     public void ClearAllQuests() {
         quests.Clear();
-        Debug.Log(quests.Count);
     }
 }

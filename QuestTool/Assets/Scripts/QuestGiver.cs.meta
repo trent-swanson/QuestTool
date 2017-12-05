@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 1a59f34477cb83e4ebf3365e43673aec
-timeCreated: 1512447196
-licenseType: Pro
+timeCreated: 1512478688
+licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - questMarker: {fileID: 1072896968037134, guid: e67e6ea41d95d62488822173fc261878,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
